@@ -7,7 +7,7 @@ body, td, th {font-family: Arial, Helvetica, sans-serif; font-size: 18px;}
 td {padding: 5px;}
 </style>
 <script>
-const keys = ['adgroup', 'creative', 'deeplink', 'redirect_android', 'redirect_ios', 'fallback'];
+const keys = ['campaign', 'adgroup', 'creative', 'deeplink', 'redirect_android', 'redirect_ios', 'fallback'];
 
 const generateURL = () => {
   document.getElementById('url').value = `https://app.adjust.com/${document.getElementById('tracker_id').value || '<TRACKER_ID>'}?${generateQuery()}`;
@@ -27,10 +27,10 @@ const generateQuery = () => {
 <h2>Input: Campaign Data</h2>
 <form onInput="generateURL()">
   <table>
-	<tr><td>Ad Campaign Tracker ID</td><td><input id="tracker_id" type="text" placeholder="abc1234"></td></tr>
-	<tr><td>Ad Group</td><td><input id="adgroup" type="text" placeholder="myadgroup"></td></tr>
-	<tr><td>Ad Creative</td><td><input id="creative" type="text" placeholder="link1, image2"></td></tr>
-
+	<tr><td>Network Tracker ID</td><td><input id="tracker_id" type="text" placeholder="abc1234"></td></tr>
+  <tr><td>Campaign</td><td><input id="campaign" type="text" placeholder="NewYear2019"></td></tr>
+  <tr><td>Group</td><td><input id="adgroup" type="text" placeholder="Version B"></td></tr>
+	<tr><td>Creative</td><td><input id="creative" type="text" placeholder="link1, image2"></td></tr>
 	<tr><td>Deeplink</td><td><input id="deeplink" type="text" value="duolingo://"></td></tr>
 	<tr><td>Play Store URL</td><td><input id="redirect_android" type="text" value="https://play.google.com/store/apps/details?id=com.duolingo"></td></tr>
 	<tr><td>App Store URL</td><td><input id="redirect_ios" type="text" value="https://itunes.apple.com/app/duolingo/id570060128?mt=8"></td></tr>
