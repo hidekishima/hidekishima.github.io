@@ -2,9 +2,9 @@
 <head>
 <style>
 #url { width: 500px; height: 150px; }
-input { width: 500px;  }
+input { width: 600px;  }
 body, td, th {font-family: Arial, Helvetica, sans-serif; font-size: 18px;}
-td {padding: 5px;}
+td {padding: 10px;}
 </style>
 <script>
 const keys = ['campaign', 'adgroup', 'creative', 'deeplink', 'redirect_android', 'redirect_ios', 'fallback'];
@@ -28,13 +28,13 @@ const generateQuery = () => {
 <form onInput="generateURL()">
   <table>
 	<tr><td>Network Tracker ID</td><td><input id="tracker_id" type="text" placeholder="abc1234"></td></tr>
-  <tr><td>Campaign</td><td><input id="campaign" type="text" placeholder="NewYear2019"></td></tr>
-  <tr><td>Group</td><td><input id="adgroup" type="text" placeholder="Version B"></td></tr>
-	<tr><td>Creative</td><td><input id="creative" type="text" placeholder="link1, image2"></td></tr>
+  <tr><td>Campaign</td><td><input id="campaign" type="text" placeholder="NewYear2019, social"></td></tr>
+  <tr><td>Group</td><td><input id="adgroup" type="text" placeholder="Version B, facebook"></td></tr>
+	<tr><td>Creative</td><td><input id="creative" type="text" placeholder="link1, image2, profile"></td></tr>
 	<tr><td>Deeplink</td><td><input id="deeplink" type="text" value="duolingo://"></td></tr>
 	<tr><td>Play Store URL</td><td><input id="redirect_android" type="text" value="https://play.google.com/store/apps/details?id=com.duolingo"></td></tr>
 	<tr><td>App Store URL</td><td><input id="redirect_ios" type="text" value="https://itunes.apple.com/app/duolingo/id570060128?mt=8"></td></tr>
-	<tr><td>Fall back URL</td><td><input id="fallback" type="text" value="https://www.duolingo.com/?utm_source=newsletter&utm_campaign=pat_new_years_18_newsletter&utm_medium=email&utm_content=button&from_email=new_years_18_newsletter"></td></tr>
+	<tr><td>Fallback UTM URL (<a href="https://ga-dev-tools.appspot.com/campaign-url-builder/" target="_blank">use this</a>)</td><td><input id="fallback" type="text" value="https://www.duolingo.com/?utm_source=newsletter&utm_campaign=pat_new_years_18_newsletter&utm_medium=email&utm_content=button&from_email=new_years_18_newsletter"></td></tr>
   </table>
 </form>
 <div>* All fields are required</div>
@@ -45,7 +45,7 @@ const generateQuery = () => {
 <h2>Tips</h2>
 <ul>
 <li>Make sure to test the experience of the fall back URL for both on English and non-English UI.</li>
-<li>See also <a href="https://docs.google.com/document/d/1wd4W_mBLe2X8bXZTCWZlrCuUcrty-cfCX2IcXG0JJs0/edit?usp=sharing">this documentation</a></li>
+<li>See more on <a href="https://docs.google.com/document/d/1wd4W_mBLe2X8bXZTCWZlrCuUcrty-cfCX2IcXG0JJs0/edit?usp=sharing">this documentation</a></li>
 </ul>
 </body>
 </html>
