@@ -1,0 +1,51 @@
+<html>
+<head>
+<style>
+#url { width: 500px; height: 150px; }
+input { width: 500px;  }
+body, td, th {font-family: Arial, Helvetica, sans-serif; font-size: 18px;}
+td {padding: 5px;}
+</style>
+<script>
+const keys = ['adgroup', 'creative', 'deeplink', 'redirect_android', 'redirect_ios', 'fallback'];
+
+const generateURL = () => {
+  document.getElementById('url').value = `https://app.adjust.com/${document.getElementById('tracker_id').value || '<TRACKER_ID>'}?${generateQuery()}`;
+}
+const generateQuery = () => {
+   const ret = [];
+   for (let i in keys) {
+     const key = keys[i];
+   	 const value = document.getElementById(key).value;
+     ret.push(encodeURIComponent(key) + '=' + (encodeURIComponent(value) || `<${key.toUpperCase()}>`));
+   }
+   return ret.join('&');
+}
+</script>
+</head>
+<body>
+<h2>Input: Campaign Data</h2>
+<form onInput="generateURL()">
+  <table>
+	<tr><td>Ad Campaign Tracker ID</td><td><input id="tracker_id" type="text" placeholder="abc1234"></td></tr>
+	<tr><td>Ad Group</td><td><input id="adgroup" type="text" placeholder="myadgroup"></td></tr>
+	<tr><td>Ad Creative</td><td><input id="creative" type="text" placeholder="link1, image2"></td></tr>
+
+	<tr><td>Deeplink</td><td><input id="deeplink" type="text" value="duolingo://"></td></tr>
+	<tr><td>Play Store URL</td><td><input id="redirect_android" type="text" value="https://play.google.com/store/apps/details?id=com.duolingo"></td></tr>
+	<tr><td>App Store URL</td><td><input id="redirect_ios" type="text" value="https://itunes.apple.com/app/duolingo/id570060128?mt=8"></td></tr>
+	<tr><td>Fall back URL</td><td><input id="fallback" type="text" value="https://www.duolingo.com/?utm_source=newsletter&utm_campaign=pat_new_years_18_newsletter&utm_medium=email&utm_content=button&from_email=new_years_18_newsletter"></td></tr>
+  </table>
+</form>
+<div>* All fields are required</div>
+
+<h2>Output: Adjust URL</h2>
+<textarea id="url" onfocus="this.select();" onmouseup="return false;"></textarea>
+
+<h2>Tips</h2>
+<ul>
+<li>Make sure to test the experience of the fall back URL for both on English and non-English UI.</li>
+<li>See also <a href="https://docs.google.com/document/d/1wd4W_mBLe2X8bXZTCWZlrCuUcrty-cfCX2IcXG0JJs0/edit?usp=sharing">this documentation</a></li>
+</ul>
+</body>
+</html>
